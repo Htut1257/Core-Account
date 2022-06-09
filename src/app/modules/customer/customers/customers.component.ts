@@ -43,4 +43,9 @@ export class CustomersComponent implements OnInit {
     
   }
 
+  CustomerSetup(){
+    this.customerService._customer={}
+    this.routes.navigate(['/customer-setup']);
+  }
+
 }

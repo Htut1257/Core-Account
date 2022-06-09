@@ -27,6 +27,9 @@ export class CustomerSetupComponent implements OnInit {
 
   ngOnInit(): void {
     this.customer=this.customerService._customer
+    if(this.customer.code==undefined){
+      this.customer.active=true
+    }
     this.regionService.getRegion().subscribe((regions)=>{
       this.region=regions
     })

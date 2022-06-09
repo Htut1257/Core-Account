@@ -3,7 +3,7 @@
     <div fxLayout="row" fxLayoutGap="10px" class="container">
       <span>Customer List</span>
       <span fxFlex></span>
-      <button  mat-stroked-button [routerLink]="['/customer-setup']">New Customer</button>
+      <button  mat-stroked-button [routerLink]="['/customer-setup']" (click)="CustomerSetup()">New Customer</button>
     </div>
   </mat-card-title>
   <mat-card-content>
