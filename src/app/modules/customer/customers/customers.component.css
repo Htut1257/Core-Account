@@ -1,0 +1,29 @@
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    width: 100%;
+    height: fit-content;
+  }
+  
+  .example-container {
+    height: 350px;
+    overflow: auto;
+  }
+  
+.mat-card{
+  height:90%
+}
+
+.mat-row {
+  height: auto;
+}
+
+.mat-header-cell{
+  padding: 10px 10px 10px 0;
+}
+
+.mat-cell {
+  padding: 10px 10px 10px 0;
+}

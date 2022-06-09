@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <button mat-icon-button class="menu" (click)="menuService.openNav()"  aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span><a [routerLink]="['/dashboard']">Core Value</a></span>
+    <span class="example-spacer"></span>
+    <div class="pull-right">
+        <button mat-icon-button title="setting" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" title="help">
+            <mat-icon>help_outline</mat-icon>
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu" title="Account">
+            <mat-icon>person_outline</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item >
+                <mat-icon>exit_to_app</mat-icon>
+                Sign out
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
