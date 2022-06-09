@@ -1,0 +1,250 @@
+
+ <!-- <mat-card fxFlex.lg="80%" fxFlex.md="80%" fxFlex.xl="80%" fxFlex.xs="100%" 
+  fxFlexOffset.lg="10%" > 
+    <mat-card-title>
+      Customer Setup
+      <button  mat-stroked-button [routerLink]="['/customer']">Back</button>
+    </mat-card-title>
+    <mat-card-content>
+        <br><mat-divider></mat-divider><br>
+         <form  fxLayout.sm="column" class="form" role="form" (ngSubmit)="onSaveCustomer()"  [formGroup]="customerForm" >
+          <div fxLayout="row drop" fxFlexFill  fxLayoutAlign="center"> 
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lt-xl="50%" fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex.lt-sm="100%" 
+              class="form-field" 
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Sys Code</mat-label>
+                <input matInput  name="sysCode" disabled="true">
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lt-xl="33%" fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline"  fxFlex.lt-sm="100%">
+                <mat-label>User Code</mat-label>
+                <input matInput formControlName="userCode" name="userCode" [(ngModel)]="customer.userCode">
+                <mat-error *ngIf="!customerForm.value.userCode">Please Enter Code</mat-error>
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="customer.traderName" formControlName="traderName" name="traderName">
+              <mat-error *ngIf="!customerForm.value.name">Please Enter name</mat-error>
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Contact Person</mat-label>
+                <input matInput [(ngModel)]="customer.contactPerson" name="contactPerson" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Phone</mat-label>
+                <input matInput [(ngModel)]="customer.phone" name="phone" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="customer.email" name="email" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>     
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Region</mat-label>
+                <mat-select [(ngModel)]="selectedRegion" name="region" [ngModelOptions]="{standalone: true}">
+                  <mat-option *ngFor="let item of region" [value]="item">
+                    {{item.regionName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div> 
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Address</mat-label>
+                <input matInput [(ngModel)]="customer.address" name="address" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>     
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Credit Limit</mat-label>
+                <input matInput [(ngModel)]="customer.creditLimit" name="creditLimit" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>     
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Credit Term</mat-label>
+                <input matInput [(ngModel)]="customer.creditTerm" name="creditTerm" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <mat-form-field appearance="outline" fxFlex.lt-sm="100%">
+                <mat-label>Price</mat-label>
+                <input matInput [(ngModel)]="customer.priceType" name="priceType" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+            <div 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%" fxFlex fxFlex.lt-sm="100%" 
+              class="form-field"
+            >
+              <section 
+              fxFlexOffset.lg="50px" fxFlexOffset.gt-xs="20px" 
+              fxFlex.lg="33.333%" fxFlex.md="33.667%"  fxFlex.lt-sm="100%" 
+              class="example-section">
+                <mat-checkbox class="example-margin" [(ngModel)]="customer.multi" name="multi"color="primary" [ngModelOptions]="{standalone: true}">Multi Use</mat-checkbox>
+                <mat-checkbox class="example-margin" [(ngModel)]="customer.cashDown" name="cashDown" color="primary" [ngModelOptions]="{standalone: true}">Cash Down</mat-checkbox>
+                <mat-checkbox  class="example-margin" [(ngModel)]="customer.active" name="active" color="primary" [ngModelOptions]="{standalone: true}">Active</mat-checkbox>
+              </section>
+            </div>
+            <div 
+            fxlayout fxLayoutGap="20px"  fxLayoutAlign="right" class="pull-right" fxFlexAlign="right"
+             fxFlex="50%" >
+              <button mat-flat-button color="primary" type="submit" type="submit" [disabled]="!customerForm.valid" fxFlex="100px">New</button>
+              <button mat-stroked-button color="primary" type="button" fxFlex="100px">Clear</button>
+            </div>
+          </div>
+        </form> 
+      </mat-card-content>
+    <mat-card-footer>
+     
+    </mat-card-footer>
+</mat-card> -->
+
+
+<mat-card> 
+  <mat-card-title>
+    <div fxLayout="row" fxLayoutGap="10px" class="container">
+      <span>Customer Setup</span>
+      <span fxFlex></span>
+      <button  mat-stroked-button [routerLink]="['/customer']">Back</button>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+      <br><mat-divider></mat-divider><br>
+       <form class="form" role="form" (ngSubmit)="onSaveCustomer()" [formGroup]="customerForm" >
+        <div> 
+          <div fxLayout="row" fxFlexFill fxLayout.lt-sm="column" fxLayoutGap="16px">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Sys Code</mat-label>
+              <input matInput name="sysCode" [(ngModel)]="customer.code" [ngModelOptions]="{standalone: true}" disabled="true" >
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>User Code</mat-label>
+              <input matInput formControlName="userCode" name="userCode" [(ngModel)]="customer.userCode">
+              <mat-error *ngIf="!customerForm.value.userCode">Please Enter Code</mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlexFill fxLayout.lt-sm="column" fxLayoutGap="16px">
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="customer.traderName" formControlName="traderName" name="traderName">
+            <mat-error *ngIf="!customerForm.value.name">Please Enter name</mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Contact Person</mat-label>
+              <input matInput [(ngModel)]="customer.contactPerson" name="contactPerson" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlexFill fxLayout.lt-sm="column" fxLayoutGap="16px">
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Phone</mat-label>
+              <input matInput [(ngModel)]="customer.phone" name="phone" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Email</mat-label>
+              <input matInput [(ngModel)]="customer.email" name="email" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlexFill fxLayout.lt-sm="column" fxLayoutGap="16px">
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Region</mat-label>
+              <mat-select [(ngModel)]="customer.region" name="region" [ngModelOptions]="{standalone: true}" [compareWith]="compareFn" >
+                <mat-option *ngFor="let item of region" [value]="item">
+                  {{item.regionName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Address</mat-label>
+              <input matInput [(ngModel)]="customer.address" name="address" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlexFill fxLayout.lt-sm="column" fxLayoutGap="16px">
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Credit Limit</mat-label>
+              <input matInput #creditTest [(ngModel)]="customer.creditLimit" name="creditLimit" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Credit Term</mat-label>
+              <input matInput [(ngModel)]="customer.creditTerm" name="creditTerm" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlexFill fxLayout.lt-sm="column" fxLayoutGap="16px">
+            <mat-form-field fxFlex appearance="outline" >
+              <mat-label>Price</mat-label>
+              <input matInput [(ngModel)]="customer.priceType" name="priceType" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <section fxFlex class="example-section">
+              <mat-checkbox class="example-margin" [(ngModel)]="customer.multi" name="multi"color="primary" [ngModelOptions]="{standalone: true}">Multi Use</mat-checkbox>
+              <mat-checkbox class="example-margin" [(ngModel)]="customer.cashDown" name="cashDown" color="primary" [ngModelOptions]="{standalone: true}">Cash Down</mat-checkbox>
+              <mat-checkbox  class="example-margin" [(ngModel)]="customer.active" name="active" color="primary" [ngModelOptions]="{standalone: true}">Active</mat-checkbox>
+            </section>
+          </div>
+          <div class="form-field" fxLayout="row" fxLayoutGap="20px">
+            <span fxFlex.lt-xl fxFlex.gt-lg fxHide.lt-sm ></span>
+            <button #saveCustomer fxFlex.lt-sm mat-flat-button color="primary" type="submit"  [disabled]="!customerForm.valid" >
+              {{customer.code?'Save':'New'}}
+            </button><!-- fxFlex.gt-sm fxFlex.gt-xs fxFlex.lt-sm -->
+            <button mat-stroked-button fxFlex.lt-sm color="primary" type="button" (click)="onClearCustomer()" >Clear</button>
+          </div>
+        </div>
+      </form> 
+    </mat-card-content>
+  <mat-card-footer>
+    
+  </mat-card-footer>
+</mat-card>
+

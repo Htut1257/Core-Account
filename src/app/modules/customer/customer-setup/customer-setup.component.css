@@ -1,0 +1,21 @@
+.mat-form-field{
+    margin:1.5px;
+    
+}
+.mat-checkbox{
+    margin: 5% 5% 5% 0%
+}
+.mat-card {
+    margin:1% 5% 5% 5%
+}
+
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.pull-right{
+  float:right
+}

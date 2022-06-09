@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    width: 100%;
+  }
+
+a.mat-list-item {
+    padding: 8px 0;
+    display: flex;
+    width: auto;  
+}
