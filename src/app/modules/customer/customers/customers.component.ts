@@ -23,8 +23,8 @@ export class CustomersComponent implements OnInit {
     this.customerService.getCustomer().subscribe((customers)=>{
       this.customers=customers
       this.dataSource=new MatTableDataSource(this.customers)
-      this.dataSource.filterPredicate = (data: Customer, filter: string) =>
-      data.traderName!.trim().toLowerCase().indexOf(filter) != -1;
+      // this.dataSource.filterPredicate = (data: Customer, filter: string) =>
+      // data.traderName!.trim().toLowerCase().indexOf(filter) != -1;
       this.dataSource.sort = this.sort;
     })
    

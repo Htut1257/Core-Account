@@ -16,6 +16,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+
 @NgModule({
   declarations: [
     CustomersComponent,
@@ -37,7 +38,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatSortModule
+    MatSortModule,
+
   ],
   exports:[
     CustomersComponent,

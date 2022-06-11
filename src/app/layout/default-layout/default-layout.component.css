@@ -5,7 +5,7 @@
 }
 
 mat-drawer{ 
-   width: 200px; /* width:150px */
+   width: 180px; /* width:150px */
 }
 mat-drawer-container{
     height: 100%;
@@ -15,3 +15,15 @@ mat-drawer-content{
     padding: 20px;
 }
 
+/* ::-webkit-scrollbar-thumbchrome
+{
+    background: red !important;
+}
+::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.26) !important;
+  } */

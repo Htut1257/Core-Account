@@ -7,6 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from "@angular/material/list";
 import { DefaultLayoutComponent } from './default-layout.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    ScrollingModule
   ]
 })
 export class DefaultLayoutModule { }

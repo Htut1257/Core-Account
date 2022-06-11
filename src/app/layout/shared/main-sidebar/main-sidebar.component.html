@@ -1,4 +1,4 @@
-<a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px'}" (click)="onItemSelected(item)"
+<a mat-list-item [ngStyle]="{'padding-left': (depth * 10) + 'px'}" (click)="onItemSelected(item)"
 [ngClass]="{'active': item.menuName ? route.isActive(item.menuName, true): false, 'expanded': expanded}"
 >
 {{item.menuName}}
@@ -11,6 +11,6 @@
 </a>
 <mat-divider></mat-divider>
 <div *ngIf="expanded"> 
-  <app-main-sidebar *ngFor="let child of item.child" [item]="child"  [depth]="depth+1"></app-main-sidebar>
-  <!-- <app-menu-list-item *ngFor="let child of item.child" [item]="child" [depth]="depth+1"></app-menu-list-item> -->
+  <app-main-sidebar *ngFor="let child of item.child" [item]="child"  ></app-main-sidebar>
+  <!-- <app-menu-list-item *ngFor="let child of item.child" [item]="child" [depth]="depth+1"></app-menu-list-item>  [depth]="depth+1"-->
 </div>
